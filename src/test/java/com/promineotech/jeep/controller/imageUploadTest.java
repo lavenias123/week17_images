@@ -57,8 +57,8 @@ class imageUploadTest {
 //		System.out.println("json = " + json);
 		String imageId = extractImageId(json);
 		
-		System.out.println("json = " + json);
-		System.out.println("imageId = " + imageId);
+//		System.out.println("json = " + json);
+//		System.out.println("imageId = " + imageId);
 		
 		assertImageRetrieval(imageId);
 
@@ -88,7 +88,7 @@ class imageUploadTest {
 		
 		// json = {"imageId":"c9a534d1-1f5c-4684-8e77-af4ebbf444ab"} remove to access ID
 		// (1, is the opening ") - 1 is the closing "
-		String[]	 parts = json.substring(1, json.length() - 1).split(":");
+		String[] parts = json.substring(1, json.length() - 1).split(":");
 				
 				return parts[1].substring(1, parts[1].length() - 1);
 	}

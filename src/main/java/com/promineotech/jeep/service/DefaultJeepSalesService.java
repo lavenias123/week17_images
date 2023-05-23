@@ -30,12 +30,17 @@ import lombok.extern.slf4j.Slf4j;
 
 public class DefaultJeepSalesService implements JeepSalesService {
 
-	
-	
-	
 	@Autowired
 	private JeepSalesDao jeepSalesDao;
 
+	@Transactional(readOnly = true)
+	@Override
+	public Image retrieveImage(String imageId) {
+		return jeepSalesDao.retrieveImage(imageId)
+				.orElseThrow(() -> new NoSuchElementException(
+						"Couldn't find image with ID = " + imageId));
+	}
+	
 	@Transactional
 	@Override
 	public String uploadImage(MultipartFile file, Long modelPK) {
@@ -108,6 +113,8 @@ public class DefaultJeepSalesService implements JeepSalesService {
 		Collections.sort(jeeps);
 		return jeeps;
 	}
+
+
 
 	
 

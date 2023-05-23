@@ -1,6 +1,7 @@
 package com.promineotech.jeep.dao;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.promineotech.jeep.entity.Image;
 import com.promineotech.jeep.entity.Jeep;
@@ -24,6 +25,10 @@ public interface JeepSalesDao {
 	 * @param image
 	 */
 	void saveImage(Image image);
+
+
+	Optional<Image> retrieveImage(String imageId);
+
 
 
 }
